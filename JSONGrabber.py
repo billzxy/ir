@@ -37,8 +37,8 @@ if __name__ == "__main__":
     #in_dir = sys.argv[1]
     #source_dir = sys.argv[2]
 
-    in_dir = "/Users/Billzhang/Desktop/smartIR/finished"
-    source_dir = "/Volumes/NO NAME"
+    in_dir = "."
+    source_dir = ".."
 
     pano_ids = getIDs(in_dir)
     grabJSON(pano_ids, source_dir)
