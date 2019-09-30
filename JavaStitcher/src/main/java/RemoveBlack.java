@@ -193,10 +193,10 @@ public class RemoveBlack
 
     public static void main(String[] args)
     {
-        String dir = "/Users/ccuser/Desktop/bostonPanos/1/output/to upload";
+        String dir = "/Users/Billzhang/Desktop/smartIR/panos";
         File file = new File(dir);
         String[] paths = file.list(new FilenameFilter() {
-            @Override
+            //@Override
             public boolean accept(File current, String name) {
                 return name.startsWith("pano-");
             }
@@ -204,17 +204,17 @@ public class RemoveBlack
 
         Arrays.sort(paths);
         System.out.println(Arrays.toString(paths));
-        for(int i = 0; i < paths.length; i += 3)
+        for(int i = 0; i < paths.length; i++)
         {
             System.out.println(paths[i]);
-            Mat ir = imread(dir + "/" + paths[i]);
-            Mat mx = imread(dir + "/" + paths[i + 1]);
-            Mat vl = imread(dir + "/" + paths[i + 2]);
+            //Mat ir = imread(dir + "/" + paths[i]);
+            Mat mx = imread(dir + "/" + paths[i]);
+            //Mat vl = imread(dir + "/" + paths[i + 2]);
 
-            int[] rowsToKeep = rowsNoBlack(ir);
-            imwrite(dir + "/" + paths[i], removeBlack(rowsToKeep, ir));
-            imwrite(dir + "/" + paths[i + 1], removeBlack(rowsToKeep, mx));
-            imwrite(dir + "/" + paths[i + 2], removeBlack(rowsToKeep, vl));
+            int[] rowsToKeep = rowsNoBlack(mx);
+            //imwrite(dir + "/" + paths[i], removeBlack(rowsToKeep, ir));
+            imwrite(dir + "/" + paths[i], removeBlack(rowsToKeep, mx));
+            //imwrite(dir + "/" + paths[i + 2], removeBlack(rowsToKeep, vl));
         }
     }
 }
